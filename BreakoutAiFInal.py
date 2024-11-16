@@ -6,7 +6,7 @@ from serpapi import GoogleSearch
 from groq import Groq
 import re
 
-# Load environment variables
+# Load environment variables    
 load_dotenv()
 serpApi = os.getenv("serpApi")
 GroqAPi = st.secrets["groqApi"]
