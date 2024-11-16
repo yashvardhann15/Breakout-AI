@@ -1,56 +1,112 @@
 # Data Analysis Application
 
-A web application that analyzes data from CSV files or Google Sheets and extracts specific information using Google Search and Groq AI. Features both command-line and Streamlit interfaces.
+A powerful tool for analyzing data from CSV files and Google Sheets, enhanced with AI-powered search and extraction capabilities using SerpAPI and Groq AI.
+
+## Features
+
+- **Data Input Options**
+  - CSV file upload
+  - Google Sheets integration
+- **Search Integration**
+  - Google search functionality based on data fields
+  - Custom prompt support
+- **AI-Powered Extraction**
+  - Groq AI integration for intelligent data extraction
+  - Customizable extraction parameters
+- **User Interface**
+  - Data preview functionality
+  - Column selection tools
+  - Export capabilities with CSV download
 
 ## Setup
 
 1. Clone the repository
-2. Install dependencies:
 ```bash
-pip install pandas python-dotenv serpapi-python groq streamlit
+git clone https://github.com/your-username/repo-name.git
+cd repo-name
 ```
 
-3. Create `.env` file with your API keys:
+2. Install dependencies
+```bash
+pip install pandas python-dotenv serpapi groq streamlit
+```
+
+3. Configure environment variables
+Create a `.env` file in the project root:
 ```env
 serpApi=your_serp_api_key_here
 groqApi=your_groq_api_key_here
 ```
 
-## Running the Application
+## Usage
 
-### Streamlit Interface:
+### Starting the Application
+
+Launch the Streamlit interface:
 ```bash
 streamlit run app.py
 ```
 
-### Command Line:
-```bash
-python script.py
-```
+### Dashboard Instructions
 
-## Features
+1. **Input Data**
+   - Upload a CSV file, or
+   - Provide a Google Sheets link (format: `https://docs.google.com/spreadsheets/d/<sheet_id>`)
 
-- CSV file upload
-- Google Sheets integration
-- Custom search prompts
-- AI-powered information extraction
-- Results export to CSV
-- User-friendly interface
+2. **Data Selection**
+   - Preview your dataset
+   - Select relevant columns for analysis
 
-## Usage
+3. **Search Configuration**
+   - Enter a custom search prompt
+   - Use `{}` as a placeholder for column values
+   - Example: `Find contact details for {Company Name}`
 
-1. Choose input method (CSV/Google Sheets)
-2. Select a column from your dataset
-3. Enter prompt using {} for column values
-4. Enter your query
-5. View and download results
+4. **Extraction Settings**
+   - Specify target information (emails, phone numbers, etc.)
+   - Configure extraction parameters
+
+5. **Process and Export**
+   - Click "Fetch Information" to run analysis
+   - Save results to CSV
+   - Download processed data
+
+### Google Sheets Integration
+
+To use Google Sheets:
+1. Open your sheet in Google Sheets
+2. Copy the sheet URL
+3. Paste into the application
+4. The app will automatically process the data
 
 ## Requirements
 
 - Python 3.7+
-- SerpAPI key
-- Groq API key
+- Valid SerpAPI key
+- Valid Groq API key
+
+## Environment Variables
+
+Required API keys:
+```env
+serpApi=your_serp_api_key_here
+groqApi=your_groq_api_key_here
+```
+
+## Optional Features
+
+- **Export Options**
+  - CSV file export
+  - Direct download functionality
+  - Custom file naming
 
 ## Support
 
-For support, please raise an issue in the repository.
+For support:
+- Open an issue in the GitHub repository
+- Include relevant error messages
+- Provide steps to reproduce any issues
+
+---
+
+For more detailed documentation or to report issues, please visit the GitHub repository.
