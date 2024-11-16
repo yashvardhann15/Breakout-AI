@@ -94,7 +94,7 @@ groqApi=your_groq_api_key_here
 
 - **Export Options**
   - Direct download functionality
-  - Model searches all possible links to get the responses.
+  - Model searches all possible links to get the responses, combines all the results to give output.
   - Reponse is kept to be precise.
 
 ## Support
