@@ -1,4 +1,2 @@
 .env
 .devcontainer
-.streamlit/secrets.toml
-.streamlit
