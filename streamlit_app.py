@@ -9,7 +9,7 @@ import re
 # Load environment variables    
 load_dotenv()
 serpApi = os.getenv("serpApi")
-GroqAPi = st.secrets["groqApi"]
+GroqAPi = os.getenv("groqApi")
 
 # Initialize Groq client
 client = Groq(api_key=GroqAPi)
