@@ -2,6 +2,14 @@
 
 A powerful tool for analyzing data from CSV files and Google Sheets, enhanced with AI-powered search and extraction capabilities using SerpAPI and Groq AI.
 
+The project is live at: https://breakout-ai.streamlit.app/
+
+This is the link to project's video: https://www.youtube.com/watch?v=wW1IsssTxoE
+
+<!-- <video controls src="BreakoutAI.mp4" title="Assignment Video"></video> -->
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wW1IsssTxoE?si=B2F80AEaN8uxQdIq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 ## Features
 
 - **Data Input Options**
