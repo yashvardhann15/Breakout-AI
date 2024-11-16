@@ -8,7 +8,7 @@ This is the link to project's video: https://www.youtube.com/watch?v=wW1IsssTxoE
 
 <!-- <video controls src="BreakoutAI.mp4" title="Assignment Video"></video> -->
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/wW1IsssTxoE?si=B2F80AEaN8uxQdIq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 ## Features
 
