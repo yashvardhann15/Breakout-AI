@@ -6,15 +6,12 @@ from serpapi import GoogleSearch
 from groq import Groq
 import re
 
-# Load environment variables    
 load_dotenv()
 serpApi = os.getenv("serpApi")
 GroqAPi = os.getenv("groqApi")
 
-# Initialize Groq client
 client = Groq(api_key=GroqAPi)
 
-# Initialize chat history
 chat_history = [
     {
         "role": "system",
@@ -22,7 +19,6 @@ chat_history = [
     }
 ]
 
-# Initialize session state
 if 'mapping' not in st.session_state:
     st.session_state.mapping = {}
 
@@ -108,10 +104,8 @@ def combineResponses(responses):
     result = f"**Extracted Information:**\n{combined_response}"
     return result.strip()
 
-# Streamlit UI
-st.title("Data Analysis Application")
+st.title("AI Helper")
 
-# File upload section
 st.header("Data Input")
 input_method = st.radio("Choose input method:", ["Upload CSV", "Google Sheets Link"])
 
@@ -161,11 +155,9 @@ if df is not None:
             
             results_df = pd.DataFrame(data)
             
-            # Save to CSV
             results_df.to_csv("results.csv", index=False)
             st.success("Results saved to results.csv")
             
-            # Provide download button
             st.download_button(
                 label="Download Results",
                 data=results_df.to_csv(index=False).encode('utf-8'),
