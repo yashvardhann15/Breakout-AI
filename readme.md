@@ -1,4 +1,4 @@
-# Data Analysis Application
+# AI Helper
 
 A powerful tool for analyzing data from CSV files and Google Sheets, enhanced with AI-powered search and extraction capabilities using SerpAPI and Groq AI.
 
