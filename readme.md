@@ -22,8 +22,8 @@ A powerful tool for analyzing data from CSV files and Google Sheets, enhanced wi
 
 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/repo-name.git
-cd repo-name
+git clone https://github.com/yashvardhann15/Breakout-AI.git
+cd Breakout-AI
 ```
 
 2. Install dependencies
@@ -51,22 +51,19 @@ streamlit run app.py
 
 1. **Input Data**
    - Upload a CSV file, or
-   - Provide a Google Sheets link (format: `https://docs.google.com/spreadsheets/d/<sheet_id>`)
+   - Provide a Google Sheets link (Remember to give viewer access to everyone with the link)
 
 2. **Data Selection**
    - Preview your dataset
-   - Select relevant columns for analysis
+   - Select relevant column for analysis
 
 3. **Search Configuration**
    - Enter a custom search prompt
    - Use `{}` as a placeholder for column values
    - Example: `Find contact details for {Company Name}`
 
-4. **Extraction Settings**
-   - Specify target information (emails, phone numbers, etc.)
-   - Configure extraction parameters
 
-5. **Process and Export**
+4. **Process and Export**
    - Click "Fetch Information" to run analysis
    - Save results to CSV
    - Download processed data
@@ -96,9 +93,9 @@ groqApi=your_groq_api_key_here
 ## Optional Features
 
 - **Export Options**
-  - CSV file export
   - Direct download functionality
-  - Custom file naming
+  - Model searches all possible links to get the responses.
+  - Reponse is kept to be precise.
 
 ## Support
 
