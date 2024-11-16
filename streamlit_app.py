@@ -145,22 +145,80 @@ if df is not None:
                 st.subheader("Extracted Information")
                 st.write(aiResponse)
     
-    if st.session_state.mapping:
-        if st.button("Save Results"):
-            # Prepare data for saving
-            data = {"User Query": [], "AI Response": []}
-            for query, response in st.session_state.mapping.items():
-                data["User Query"].append(query)
-                data["AI Response"].append(response)
+def updateCSV(df):
+    updated_csv_path = "updated_file.csv"
+    df.to_csv(updated_csv_path, index=False)
+    st.success(f"CSV file updated and saved as {updated_csv_path}")
+    
+    st.download_button(
+        label="Download Updated CSV",
+        data=df.to_csv(index=False).encode('utf-8'),
+        file_name='updated_file.csv',
+        mime='text/csv'
+    )
+
+if st.session_state.mapping:
+    if st.button("Save Results"):
+        data = {"User Query": [], "AI Response": []}
+        for query, response in st.session_state.mapping.items():
+            data["User Query"].append(query)
+            data["AI Response"].append(response)
+        
+        results_df = pd.DataFrame(data)
+        
+        results_csv_path = "results.csv"
+        results_df.to_csv(results_csv_path, index=False)
+        st.success(f"Results saved to {results_csv_path}")
+        
+        st.download_button(
+            label="Download Results",
+            data=results_df.to_csv(index=False).encode('utf-8'),
+            file_name='results.csv',
+            mime='text/csv'
+        )
+    
+    if st.button("Update Existing Data"):
+        if input_method == "Upload CSV" and df is not None:
+            user_query_col = []
+            ai_response_col = []
             
-            results_df = pd.DataFrame(data)
+            for _, row in df.iterrows():
+                selected_value = row[selected_attribute]
+                if selected_value in st.session_state.mapping:
+                    user_query_col.append(backPrompt)
+                    ai_response_col.append(st.session_state.mapping[backPrompt])
+                else:
+                    user_query_col.append("")
+                    ai_response_col.append("")
             
-            results_df.to_csv("results.csv", index=False)
-            st.success("Results saved to results.csv")
+            df['User Input'] = user_query_col
+            df['AI Response'] = ai_response_col
             
-            st.download_button(
-                label="Download Results",
-                data=results_df.to_csv(index=False).encode('utf-8'),
-                file_name='results.csv',
-                mime='text/csv'
-            )
+            updateCSV(df)
+        
+        elif input_method == "Google Sheets Link" and sheet_url:
+            try:
+                sheet_id = re.search('/spreadsheets/d/([a-zA-Z0-9-_]+)', sheet_url).group(1)
+                csv_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv"
+                sheet_df = pd.read_csv(csv_url)
+                
+                user_query_col = []
+                ai_response_col = []
+                
+                for _, row in sheet_df.iterrows():
+                    selected_value = row[selected_attribute]
+                    if selected_value in st.session_state.mapping:
+                        user_query_col.append(backPrompt)
+                        ai_response_col.append(st.session_state.mapping[backPrompt])
+                    else:
+                        user_query_col.append("")
+                        ai_response_col.append("")
+                
+                sheet_df['User Input'] = user_query_col
+                sheet_df['AI Response'] = ai_response_col
+                
+                updateCSV(sheet_df)
+            except Exception as e:
+                st.error(f"Error processing Google Sheets: {e}")
+        else:
+            st.error("No data loaded to update.")
