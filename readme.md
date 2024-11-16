@@ -93,7 +93,7 @@ groqApi=your_groq_api_key_here
 ## Optional Features
 
 - **Export Options**
-  - Direct download functionality
+  - Direct download and update functionality
   - Model searches all possible links to get the responses, combines all the results to give output.
   - Reponse is kept to be precise.
 
@@ -103,6 +103,7 @@ For support:
 - Open an issue in the GitHub repository
 - Include relevant error messages
 - Provide steps to reproduce any issues
+
 
 ---
 

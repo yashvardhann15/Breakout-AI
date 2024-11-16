@@ -115,7 +115,7 @@ if input_method == "Upload CSV":
     if uploaded_file is not None:
         df = pd.read_csv(uploaded_file)
 else:
-    sheet_url = st.text_input("Enter Google Sheets link:")
+    sheet_url = st.text_input("Enter Google Sheets link (Give editor access to anyone with link):")
     if sheet_url:
         try:
             sheet_id = re.search('/spreadsheets/d/([a-zA-Z0-9-_]+)', sheet_url).group(1)
@@ -128,7 +128,7 @@ if df is not None:
     st.subheader("Data Preview")
     st.dataframe(df.head())
     
-    st.subheader("Column Selection")
+    st.subheader("Select column you want to search:")
     selected_attribute = st.selectbox("Select a column:", df.columns)
     
     if selected_attribute:
